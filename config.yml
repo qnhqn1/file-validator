@@ -1,0 +1,45 @@
+serviceName: file-validator
+port: 8065
+enableSwagger: true
+
+database:
+  shards:
+    - name: shard0
+      host: file-db-0
+      port: 5432
+      dbname: files_validator_0
+      username: file_validator
+      password: file_validator
+    - name: shard1
+      host: file-db-1
+      port: 5432
+      dbname: files_validator_1
+      username: file_validator
+      password: file_validator
+    - name: shard2
+      host: file-db-2
+      port: 5432
+      dbname: files_validator_2
+      username: file_validator
+      password: file_validator
+
+kafka:
+  brokers:
+    - broker-kafka:9094
+  groupId: file-validator
+  maxMessageBytes: 33554432
+
+topics:
+  input: get.raw.order
+  output: orders.parsed
+  response: raw.order.responses
+
+redis:
+  host: redis
+  port: 6379
+  db: 0
+  ttlSeconds: 600
+
+minio:
+  endpoint: http://minio:9000
+  bucket: documents
