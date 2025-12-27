@@ -1,12 +1,12 @@
 packages:
-  gitlab.com/nikita1700/file-validator/internal/cache:
+  github.com/qnhqn1/file-validator/internal/cache:
     interfaces:
       Cache:
         config:
           dir: internal/services/validator/mocks
           filename: cache.go
           outpkg: mocks
-  gitlab.com/nikita1700/file-validator/internal/storage/pgstorage:
+  github.com/qnhqn1/file-validator/internal/storage/pgstorage:
     interfaces:
       StorageInterface:
         config:
